@@ -1,0 +1,39 @@
+Symbol usage description:
+# = might not be necessary
+
+add to settings.py
+INSTALLED_APPS += (
+    # 'djgeojson',
+    'leaflet'
+)
+
+added packages to env
+-- python packages
+ - pip install django-geojson
+ - # pip install "django-geojson [field]"
+ - conda install django-leaflet
+ - conda install -c conda-forge gdal
+
+
+ - if using anaconda3 following might be necessary:
+ - # install OSGeoW (32/64 bit)
+ - # set GDAL_LIBRARY_PATH = dll path
+ - # set GEOS_LIBRARY_PATH = geos_c.dll path
+ - make sure Anaconda3 and  Anaconda3\Skripts\ is on your path variables
+
+ errors might occur:
+ if winerror 126 edit gdal file "libgdal.py"
+        # Custom library path set?
+        if 'linux' in sys.platform:
+            lib_path = os.path.join(sys.prefix, 'lib', 'libgdal.so')
+        elif 'darwin' in sys.platform:
+            lib_path = os.path.join(sys.prefix, 'lib', 'libgdal.dylib')
+        elif os.name == 'nt':
+            lib_path = os.path.join(sys.prefix, 'Library', 'bin', 'gdal201.dll') <-- change to gdal202.dll/gdal203.dll
+                                                                                     depends on the existing on in anaconda-env-Library-bin-file
+
+__________________________________________________________________________________
+Django Instructions:
+
+- start local web server - python manage.py runserver
+- create table modle from db - python manage.py migrate --database=oedb
