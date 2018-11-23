@@ -23,7 +23,7 @@ class EgoGridDing0VersioningTest(models.Model):
 
 class EgoGridDing0LvStationTest(models.Model):
     id = models.BigIntegerField(primary_key=True)
-    run_id = models.ForeignKey('EgoGridDing0VersioningTest', models.DO_NOTHING)
+    run = models.ForeignKey('EgoGridDing0VersioningTest', models.DO_NOTHING)
     id_db = models.BigIntegerField(blank=True, null=True)
     geom = geomodels.PointField(blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
@@ -34,3 +34,8 @@ class EgoGridDing0LvStationTest(models.Model):
 
         # plural form in admin view
         verbose_name_plural = 'lv_station'
+
+    def init(self):
+        Lv_Station = EgoGridDing0LvStationTest()
+
+        return Lv_Station
