@@ -23,16 +23,30 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript">
             function map_init_basic (map, options) {
+                var popup = L.popup()
+
                 var dataurl = "{% url 'app_eGoVIS:LvStation'|add:'.data' %}"
+
+
 
                 // Load GeoJsons via Ajax and add layers to map
                 $.ajax({
                     url: dataurl,
                     dataType: 'json',
                     async: true,
-                    success: function(json){
+                    success: function(geofeature){
+
+                        function onEachFeature(geofeature, layer) {
+                            // does this feature have a property named popupContent?
+                            if (geofeature.properties) {
+                                layer.bindPopup(geofeature.properties.name);
+                            }
+                        }
+
                         // Add GeoJSON layer
-                        var layer = new L.geoJson(json);
+                        var feature_prop =  geofeature['properties']
+                        var layer = new L.geoJson(geofeature, {
+                                          onEachFeature: onEachFeature});
                         map.addLayer(layer);
                         }
 
