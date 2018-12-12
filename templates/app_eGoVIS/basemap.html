@@ -25,13 +25,37 @@
             function map_init_basic (map, options) {
                 var popup = L.popup()
 
-                var dataurl = "{% url 'app_eGoVIS:LvStation'|add:'.data' %}"
+                var lines_dataurl = "{% url 'app_eGoVIS:Lines'|add:'.data' %}"
 
+                var lvbranchtee_dataurl = "{% url 'app_eGoVIS:LvBranchtee'|add:'.data' %}"
+                var lvgenerator_dataurl = "{% url 'app_eGoVIS:LvGenerator'|add:'.data' %}"
+                var lvgrid_dataurl = "{% url 'app_eGoVIS:LvGrid'|add:'.data' %}"
+                var lvloadarea_dataurl = "{% url 'app_eGoVIS:LvLoadarea'|add:'.data' %}"
+                var lvstation_dataurl = "{% url 'app_eGoVIS:LvStation'|add:'.data' %}"
 
+                var mvbranchtee_dataurl = "{% url 'app_eGoVIS:MvBranchtee'|add:'.data' %}"
+                var mvcircuitbreaker_dataurl = "{% url 'app_eGoVIS:MvCircuitbreaker'|add:'.data' %}"
+                var mvgenerator_dataurl = "{% url 'app_eGoVIS:MvGenerator'|add:'.data' %}"
+                var mvgrid_dataurl = "{% url 'app_eGoVIS:MvGrid'|add:'.data' %}"
+                var mvload_dataurl = "{% url 'app_eGoVIS:MvLoad'|add:'.data' %}"
+                var mvstation_dataurl = "{% url 'app_eGoVIS:MvStation'|add:'.data' %}"
+
+                var hvmvtransformer_dataurl = "{% url 'app_eGoVIS:HvmvTransformer'|add:'.data' %}"
+                var mvlvtransformer_dataurl = "{% url 'app_eGoVIS:MvlvTransformer'|add:'.data' %}"
+
+                var dataurl_array = [lines_dataurl, lvbranchtee_dataurl, lvgenerator_dataurl, lvgrid_dataurl, lvloadarea_dataurl,
+                                    lvstation_dataurl, mvbranchtee_dataurl, mvcircuitbreaker_dataurl, mvgenerator_dataurl,
+                                    mvgrid_dataurl, mvload_dataurl, mvstation_dataurl, hvmvtransformer_dataurl,
+                                    mvlvtransformer_dataurl];
+                var arr_length = dataurl_array.length;
+                var i;
+
+                for (i = 0; i < arr_length; i++) {
 
                 // Load GeoJsons via Ajax and add layers to map
                 $.ajax({
-                    url: dataurl,
+
+                    url: dataurl_array[i],
                     dataType: 'json',
                     async: true,
                     success: function(geofeature){
@@ -50,8 +74,9 @@
                         map.addLayer(layer);
                         }
 
-                     });
+                });
                 }
+            }
 
 
 
