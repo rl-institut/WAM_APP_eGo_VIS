@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg1574"
+   version="1.1"
+   viewBox="0 0 145.19073 182.73637"
+   height="182.73636mm"
+   width="145.19072mm"
+   sodipodi:docname="Pin_solarenergy_roof_color.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="0.48562261"
+     inkscape:cx="606.27584"
+     inkscape:cy="385.46139"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0" />
+  <defs
+     id="defs1568" />
+  <metadata
+     id="metadata1571">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(90.952506,-54.342298)"
+     id="layer1">
+    <path
+       style="opacity:1;fill:#ff4500;fill-opacity:1;stroke:none;stroke-width:8.00555611;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       d="m 54.238218,127.31138 c 0,40.29973 -72.59536,109.76728 -72.59536,109.76728 0,0 -72.595364,-69.46755 -72.595364,-109.76728 0,-40.299704 32.502054,-72.969083 72.595364,-72.969082 40.093308,-10e-7 72.59536,32.669378 72.59536,72.969082 z"
+       id="path6050"
+       inkscape:connector-curvature="0" />
+    <rect
+       y="83.985863"
+       x="-12.771538"
+       height="25.383741"
+       width="26.543503"
+       id="rect923-8"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.25529817;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       transform="matrix(1,0,-0.3902493,0.92070923,0,0)" />
+    <rect
+       y="83.985863"
+       x="18.016006"
+       height="25.383741"
+       width="26.543503"
+       id="rect925-9"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.25529817;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       transform="matrix(1,0,-0.3902493,0.92070923,0,0)" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.25529817;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       id="rect931-6"
+       width="26.543503"
+       height="25.383741"
+       x="-12.771538"
+       y="113.05032"
+       transform="matrix(1,0,-0.3902493,0.92070923,0,0)" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.25529817;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       id="rect933-8"
+       width="26.543503"
+       height="25.383741"
+       x="18.016006"
+       y="113.05032"
+       transform="matrix(1,0,-0.3902493,0.92070923,0,0)" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.32245505;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 12.398431,84.73133 -18.7157059,46.15371 h -0.2895382 v 35.15574 h 0.2895382 l 37.0202619,-9.9155 v -33.53356 z m -79.387784,46.15371 v 35.15574 h 57.5250834 v -35.15574 z"
+       id="path870"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

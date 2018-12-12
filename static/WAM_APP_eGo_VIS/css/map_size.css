@@ -1,0 +1,13 @@
+.leaflet-container {  /* all maps */
+    width:  600px;
+    height: 400px;
+}
+
+#specialbigmap {
+    height: 800px;
+}
+
+html,body, #map {
+    width:  800px;
+    height: 600px;
+}
