@@ -38,6 +38,14 @@
                 var lvgrid_dataurl = "{% url 'app_eGoVIS:LvGrid'|add:'.data' %}"
                 var lvloadarea_dataurl = "{% url 'app_eGoVIS:LvLoadarea'|add:'.data' %}"
                 var lvstation_dataurl = "{% url 'app_eGoVIS:LvStation'|add:'.data' %}"
+                var mvbranchtee_dataurl = "{% url 'app_eGoVIS:MvBranchtee'|add:'.data' %}"
+                var mvcircuitbreaker_dataurl = "{% url 'app_eGoVIS:MvCircuitbreaker'|add:'.data' %}"
+                var mvgenerator_dataurl = "{% url 'app_eGoVIS:MvGenerator'|add:'.data' %}"
+                var mvgrid_dataurl = "{% url 'app_eGoVIS:MvGrid'|add:'.data' %}"
+                var mvload_dataurl = "{% url 'app_eGoVIS:MvLoad'|add:'.data' %}"
+                var mvstation_dataurl = "{% url 'app_eGoVIS:MvStation'|add:'.data' %}"
+                var hvmvtransformer_dataurl = "{% url 'app_eGoVIS:HvmvTransformer'|add:'.data' %}"
+                var mvlvtransformer_dataurl = "{% url 'app_eGoVIS:MvlvTransformer'|add:'.data' %}"
 
                 var biomassIcon = L.icon({
                     iconUrl: "{% static 'WAM_APP_eGo_VIS/Icons/Pin_biomass_color_v2.svg' %}",
@@ -55,14 +63,7 @@
 
                 L.marker([53.4554, 9.6211], {icon: biomassIcon}).addTo(map);
 
-                var mvbranchtee_dataurl = "{% url 'app_eGoVIS:MvBranchtee'|add:'.data' %}"
-                var mvcircuitbreaker_dataurl = "{% url 'app_eGoVIS:MvCircuitbreaker'|add:'.data' %}"
-                var mvgenerator_dataurl = "{% url 'app_eGoVIS:MvGenerator'|add:'.data' %}"
-                var mvgrid_dataurl = "{% url 'app_eGoVIS:MvGrid'|add:'.data' %}"
-                var mvload_dataurl = "{% url 'app_eGoVIS:MvLoad'|add:'.data' %}"
-                var mvstation_dataurl = "{% url 'app_eGoVIS:MvStation'|add:'.data' %}"
-                var hvmvtransformer_dataurl = "{% url 'app_eGoVIS:HvmvTransformer'|add:'.data' %}"
-                var mvlvtransformer_dataurl = "{% url 'app_eGoVIS:MvlvTransformer'|add:'.data' %}"
+
 
                 var dataurl_array = [lines_dataurl, lvbranchtee_dataurl, lvgenerator_dataurl, lvgrid_dataurl, lvloadarea_dataurl,
                                     lvstation_dataurl, mvbranchtee_dataurl, mvcircuitbreaker_dataurl, mvgenerator_dataurl,
