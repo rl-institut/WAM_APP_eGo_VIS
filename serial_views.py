@@ -9,13 +9,17 @@ from djgeojson.views import GeoJSONLayerView
 
 class LinesData(GeoJSONLayerView):
     model = EgoGridDing0LineTest
+    properties = ['run', 'type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
+    srid = 4326
+    geometry_field = 'geom'
+
 
 
 #######  LV  #######
 
 class LvBranchteeData(GeoJSONLayerView):
     model = EgoGridDing0LvBranchteeTest
-    properties = []
+    properties = ['name']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -23,7 +27,7 @@ class LvBranchteeData(GeoJSONLayerView):
 
 class LvGeneratorData(GeoJSONLayerView):
     model = EgoGridDing0LvGeneratorTest
-    properties = []
+    properties = ['lv_grid_id', 'type', 'subtype', 'nominal_capacity', 'is_aggregated']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -31,7 +35,7 @@ class LvGeneratorData(GeoJSONLayerView):
 
 class LvGridData(GeoJSONLayerView):
     model = EgoGridDing0LvGridTest
-    properties = []
+    properties = ['population', 'voltage_nom']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -39,7 +43,7 @@ class LvGridData(GeoJSONLayerView):
 
 class LvLoadareaData(GeoJSONLayerView):
     model = EgoGridDing0LvLoadTest
-    properties = []
+    properties = ['name', 'consumption']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -57,7 +61,7 @@ class LvStationData(GeoJSONLayerView):
 
 class MvBranchteeData(GeoJSONLayerView):
     model = EgoGridDing0MvBranchteeTest
-    properties = []
+    properties = ['name']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -65,7 +69,7 @@ class MvBranchteeData(GeoJSONLayerView):
 
 class MvCircuitbreakerData(GeoJSONLayerView):
     model = EgoGridDing0MvCircuitbreakerTest
-    properties = []
+    properties = ['name', 'status']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -73,7 +77,7 @@ class MvCircuitbreakerData(GeoJSONLayerView):
 
 class MvGeneratorData(GeoJSONLayerView):
     model = EgoGridDing0MvGeneratorTest
-    properties = []
+    properties = ['type', 'subtype', 'nominal_capacity', 'is_aggregated']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -81,7 +85,7 @@ class MvGeneratorData(GeoJSONLayerView):
 
 class MvGridData(GeoJSONLayerView):
     model = EgoGridDing0MvGridTest
-    properties = []
+    properties = ['population', 'voltage_nom']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -89,7 +93,7 @@ class MvGridData(GeoJSONLayerView):
 
 class MvLoadData(GeoJSONLayerView):
     model = EgoGridDing0MvLoadTest
-    properties = []
+    properties = ['name', 'is_aggregated', 'consumption']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -97,7 +101,7 @@ class MvLoadData(GeoJSONLayerView):
 
 class MvStationData(GeoJSONLayerView):
     model = EgoGridDing0MvStationTest
-    properties = []
+    properties = ['name', 'run']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -107,7 +111,7 @@ class MvStationData(GeoJSONLayerView):
 
 class HvmvTransformerData(GeoJSONLayerView):
     model = EgoGridDing0HvmvTransformerTest
-    properties = []
+    properties = ['voltage_op', 's_nom', 'x', 'r']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
@@ -115,6 +119,7 @@ class HvmvTransformerData(GeoJSONLayerView):
 
 class MvlvTransformerData(GeoJSONLayerView):
     model = EgoGridDing0MvlvTransformerTest
+    properties = ['voltage_op', 's_nom', 'x', 'r']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
