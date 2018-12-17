@@ -166,10 +166,11 @@
 
                 L.marker([53.4554, 9.6211], {icon: biomassIcon}).addTo(map); // example marker to quickly show if map loads
 
-                var dataurl_array = [lvbranchtee_dataurl, lvloadarea_dataurl, //mvgrid_dataurl, lines_dataurl
-                                    lvstation_dataurl, mvbranchtee_dataurl, mvcircuitbreaker_dataurl,
-                                    mvload_dataurl, mvstation_dataurl, hvmvtransformer_dataurl,
-                                    mvlvtransformer_dataurl];
+/*                var dataurl_array = //[lvbranchtee_dataurl, lvloadarea_dataurl, //mvgrid_dataurl, lines_dataurl
+                                    //lvstation_dataurl, mvbranchtee_dataurl, mvcircuitbreaker_dataurl,
+                                    //mvload_dataurl, mvstation_dataurl, hvmvtransformer_dataurl,
+                                    //mvlvtransformer_dataurl];
+
                 var arr_length = dataurl_array.length;
                 var i;
 
@@ -205,6 +206,7 @@
                 });
 
                 }
+*/
 
                 // LV Generators
                 $.ajax({
@@ -221,10 +223,18 @@
                                 if (feature.properties.subtype == "solar_roof_mounted") {
                                     return L.marker(latlng, {icon: solarRoofIcon});
                                 }
+                                if (feature.properties.subtype == "solar_ground_mounted") {
+                                    return L.marker(latlng, {icon: solarGroundIcon});
+                                }
                                 if (feature.properties.subtype == "biomass") {
                                     return L.marker(latlng, {icon: biomassIcon});
                                 }
-
+                                if (feature.properties.subtype == "wind_onshore") {
+                                    return L.marker(latlng, {icon: windOnIcon});
+                                }
+                                if (feature.properties.subtype == "wind_offshore") {
+                                    return L.marker(latlng, {icon: windOffIcon});
+                                }
                             }
                         })
                         map.addLayer(layer)
@@ -247,10 +257,18 @@
                                 if (feature.properties.subtype == "solar_roof_mounted") {
                                     return L.marker(latlng, {icon: solarRoofIcon});
                                 }
+                                if (feature.properties.subtype == "solar_ground_mounted") {
+                                    return L.marker(latlng, {icon: solarGroundIcon});
+                                }
                                 if (feature.properties.subtype == "biomass") {
                                     return L.marker(latlng, {icon: biomassIcon});
                                 }
-
+                                if (feature.properties.subtype == "wind_onshore") {
+                                    return L.marker(latlng, {icon: windOnIcon});
+                                }
+                                if (feature.properties.subtype == "wind_offshore") {
+                                    return L.marker(latlng, {icon: windOffIcon});
+                                }
                             }
                         })
                         map.addLayer(layer)
