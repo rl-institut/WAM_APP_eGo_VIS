@@ -101,28 +101,28 @@
                 iconUrl: "{% static 'WAM_APP_eGo_VIS/Icons/T_thick_LOW_v2.svg' %}",
                 iconSize:     [36, 44], // size of the icon
                 iconAnchor:   [18, 20], // point of the icon which will correspond to marker's location
-                popupAnchor:  [0, -20] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
             });
 
             var tMvIcon = L.icon({
                 iconUrl: "{% static 'WAM_APP_eGo_VIS/Icons/T_thick_MEDIUM_v2.svg' %}",
                 iconSize:     [36, 44], // size of the icon
                 iconAnchor:   [18, 20], // point of the icon which will correspond to marker's location
-                popupAnchor:  [0, -20] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
             });
 
             var transformerHvMvIcon = L.icon({
                 iconUrl: "{% static 'WAM_APP_eGo_VIS/Icons/Transfomer_thick_HIGH_MEDIUM.svg' %}",
                 iconSize:     [54, 66], // size of the icon
                 iconAnchor:   [36, 30], // point of the icon which will correspond to marker's location
-                popupAnchor:  [0, -20] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
             });
 
             var transformerMvLvIcon = L.icon({
                 iconUrl: "{% static 'WAM_APP_eGo_VIS/Icons/Transfomer_thick_MEDIUM_LOW.svg' %}",
                 iconSize:     [36, 44], // size of the icon
                 iconAnchor:   [18, 20], // point of the icon which will correspond to marker's location
-                popupAnchor:  [0, -20] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
             });
 
             var windOffIcon = L.icon({
@@ -201,7 +201,6 @@
                         map.addLayer(layer)
 
                         }
-
                 });
 
                 }
@@ -326,6 +325,45 @@
                         }
                 });
 
+                // mv Load point geometry no icon
+                /*$.ajax({
+                    url: mvload_dataurl,
+                    dataType: 'json',
+                    async: true,
+                    success: function(mvload){
+                        function onEachFeature(mvload, layer) {
+                            enablePopup(mvload, layer);
+                        }
+                        var layer = new L.geoJSON(mvload, {
+                            onEachFeature: onEachFeature,
+                            style: function (feature, latlng) {
+                                return loadAreaStyle;
+                            }
+                        })
+                        map.addLayer(layer)
+                        }
+                });*/
+
+                // lv Station
+                $.ajax({
+                    url: lvstation_dataurl,
+                    dataType: 'json',
+                    async: true,
+                    success: function(lvstation){
+                        function onEachFeature(lvstation, layer) {
+                            enablePopup(lvstation, layer);
+                        }
+                        var layer = new L.geoJSON(lvstation, {
+                            onEachFeature: onEachFeature,
+                            pointToLayer: function (feature, latlng) {
+                                return L.marker(latlng, {icon: transformerMvLvIcon}, nohide = true);
+                            }
+                        })
+                        map.addLayer(layer)
+                        layer.toFront();
+                        }
+                });
+
                 // HV-MV Transformer
                 $.ajax({
                     url: hvmvtransformer_dataurl,
@@ -338,11 +376,11 @@
                         var layer = new L.geoJSON(hvmvt, {
                             onEachFeature: onEachFeature,
                             pointToLayer: function (feature, latlng) {
-                                return L.marker(latlng, {icon: transformerHvMvIcon});
+                                return L.marker(latlng, {icon: transformerHvMvIcon}, nohide = true);
                             }
                         })
                         map.addLayer(layer)
-                        layer.bringToFront();
+                        layer.toFront();
                         }
                 });
 
