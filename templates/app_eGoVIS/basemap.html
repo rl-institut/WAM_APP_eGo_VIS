@@ -145,6 +145,21 @@
         </script>
 
         <script type="text/javascript">
+
+            function enablePopup(geojson, layer){
+                if (geojson.properties) {
+                    var keys = Object.keys(geojson.properties);
+                    var content = '<table class="selection_detail">';
+                    for (let i = 0, len = keys.length; i < len; i++){
+                        if (keys[i] !== "model"){
+                            content = content + '<tr><td align="right"><b>' + keys[i] + '</b>:</td><td>' + geojson.properties[keys[i]] + '</td></tr>'
+                        }
+                    }
+                    content = content + '</table>';
+                    layer.bindPopup(content);
+                }
+            }
+
         
             function map_init_basic (map, options) {
                 var popup = L.popup()
@@ -198,10 +213,7 @@
                     async: true,
                     success: function(lvgenerator){
                         function onEachFeature(lvgenerator, layer) {
-                            // does this feature have a property named popupContent?
-                            if (lvgenerator.properties) {
-                                layer.bindPopup(lvgenerator.properties.name);
-                            }
+                            enablePopup(lvgenerator, layer);
                         }
                         var layer = new L.geoJSON(lvgenerator, {
                             onEachFeature: onEachFeature,
@@ -227,24 +239,23 @@
                     async: true,
                     success: function(mvgenerator){
                         function onEachFeature(mvgenerator, layer) {
-                            bindPopup(mvgenerator, layer);
+                            enablePopup(mvgenerator, layer);
                         }
                         var layer = new L.geoJSON(mvgenerator, {
                             onEachFeature: onEachFeature,
                             pointToLayer: function (feature, latlng) {
-                                return L.marker(latlng, {icon: windOnIcon});
+                                if (feature.properties.subtype == "solar_roof_mounted") {
+                                    return L.marker(latlng, {icon: solarRoofIcon});
+                                }
+                                if (feature.properties.subtype == "biomass") {
+                                    return L.marker(latlng, {icon: biomassIcon});
+                                }
+
                             }
-                            
                         })
                         map.addLayer(layer)
                         }
                 });
-
-                function bindPopup(geojson, layer){
-                    if (geojson.properties) {
-                                layer.bindPopup(geojson.properties.type);
-                            }
-                }
 
                 var lvGridStyle = {
                     opacity: 0.7,
@@ -283,7 +294,7 @@
                     async: true,
                     success: function(lv){
                         function onEachFeature(lv, layer) {
-                            bindPopup(lv, layer);
+                            enablePopup(lv, layer);
                         }
                         var layer = new L.geoJSON(lv, {
                             onEachFeature: onEachFeature,
@@ -302,7 +313,7 @@
                     async: true,
                     success: function(mv){
                         function onEachFeature(mv, layer) {
-                            bindPopup(mv, layer);
+                            enablePopup(mv, layer);
                         }
                         var layer = new L.geoJSON(mv, {
                             onEachFeature: onEachFeature,
@@ -322,7 +333,7 @@
                     async: true,
                     success: function(hvmvt){
                         function onEachFeature(hvmvt, layer) {
-                            bindPopup(hvmvt, layer);
+                            enablePopup(hvmvt, layer);
                         }
                         var layer = new L.geoJSON(hvmvt, {
                             onEachFeature: onEachFeature,
@@ -341,7 +352,7 @@
                     async: true,
                     success: function(mvbt){
                         function onEachFeature(mvbt, layer) {
-                            bindPopup(mvbt, layer);
+                            enablePopup(mvbt, layer);
                         }
                         var layer = new L.geoJSON(mvbt, {
                             onEachFeature: onEachFeature,
@@ -362,7 +373,7 @@
                     async: true,
                     success: function(plines){
                         function onEachFeature(plines, layer) {
-                            bindPopup(plines, layer);
+                            enablePopup(plines, layer);
                         }
                         var layer = new L.geoJSON(plines, {
                             onEachFeature: onEachFeature,

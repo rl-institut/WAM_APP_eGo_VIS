@@ -9,7 +9,8 @@ from djgeojson.views import GeoJSONLayerView
 
 class LinesData(GeoJSONLayerView):
     model = EgoGridDing0LineTest
-    properties = ['run', 'type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
+    #properties = ['run', 'type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
+    properties = ['type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
     srid = 4326
     geometry_field = 'geom'
 
