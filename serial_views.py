@@ -11,10 +11,7 @@ from djgeojson.views import GeoJSONLayerView
 
 class LinesData(GeoJSONLayerView):
     model = EgoGridDing0LineTest
-<<<<<<< HEAD
-=======
     #properties = ['run', 'type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
->>>>>>> 8a6c47f223e73b0dc42eaadb5a4f622fe34f0ac0
     properties = ['type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
     srid = 4326
     geometry_field = 'geom'
