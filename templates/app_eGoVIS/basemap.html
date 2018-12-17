@@ -146,20 +146,6 @@
 
         <script type="text/javascript">
 
-            function enablePopup(geojson, layer){
-                if (geojson.properties) {
-                    var keys = Object.keys(geojson.properties);
-                    var content = '<table class="selection_detail">';
-                    for (let i = 0, len = keys.length; i < len; i++){
-                        if (keys[i] !== "model"){
-                            content = content + '<tr><td align="right"><b>' + keys[i] + '</b>:</td><td>' + geojson.properties[keys[i]] + '</td></tr>'
-                        }
-                    }
-                    content = content + '</table>';
-                    layer.bindPopup(content);
-                }
-            }
-
         
             function map_init_basic (map, options) {
                 var popup = L.popup()
@@ -304,6 +290,37 @@
                     color: "#000000",
                 };
 
+                var highlightStyle = {
+                    opacity: 0.7,
+                    weight: 2,
+                    fillOpacity: 0.7,
+                    color: "#0000ff",
+                    fillColor: "#0ba0ff",
+                };
+
+                var clickedStyle = {
+                    opacity: 0.7,
+                    weight: 2,
+                    fillOpacity: 0.7,
+                    color: "#00ff00",
+                    fillColor: "#00ffff",
+                };
+
+            function enablePopup(geojson, layer){
+                if (geojson.properties) {
+                    var keys = Object.keys(geojson.properties);
+                    var content = '<table class="selection_detail">';
+                    for (let i = 0, len = keys.length; i < len; i++){
+                        if (keys[i] !== "model"){
+                            content = content + '<tr><td align="right"><b>' + keys[i] + '</b>:</td><td>' + geojson.properties[keys[i]] + '</td></tr>'
+                        }
+                    }
+                    content = content + '</table>';
+                    layer.bindPopup(content);
+                }
+            }
+
+
                 // LV Grid
                 $.ajax({
                     url: lvgrid_dataurl,
@@ -311,6 +328,15 @@
                     async: true,
                     success: function(lv){
                         function onEachFeature(lv, layer) {
+                            layer.on('mouseover', function () {
+                              this.setStyle(highlightStyle);
+                            });
+                            layer.on('click', function () {
+                              this.setStyle(highlightStyle);
+                            });
+                            layer.on('mouseout', function () {
+                              this.setStyle(lvGridStyle);
+                            });
                             enablePopup(lv, layer);
                         }
                         var layer = new L.geoJSON(lv, {
