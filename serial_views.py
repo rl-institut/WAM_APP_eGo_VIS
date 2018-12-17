@@ -6,6 +6,8 @@ from djgeojson.views import GeoJSONLayerView
 ### GeoJSONLayerViews ###
 #########################
 
+# run (run_id) in properties causes long loading time when displayed in browser
+
 
 class LinesData(GeoJSONLayerView):
     model = EgoGridDing0LineTest
@@ -52,7 +54,7 @@ class LvLoadareaData(GeoJSONLayerView):
 
 class LvStationData(GeoJSONLayerView):
     model = EgoGridDing0LvStationTest
-    properties = ['name', 'run']
+    properties = ['name']
     srid = 4326
     geometry_field = 'geom'
     precision = 5
