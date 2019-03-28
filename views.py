@@ -1,11 +1,15 @@
 from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render
-from .models import EgoGridDing0LvStationTest
+from .models import EgoGridDing0LvStation
 from djgeojson.serializers import Serializer as GeoJSONSerializer
 from django.core.serializers import serialize
 import json
 
+
+def basemap_template(request):
+    template = loader.get_template("app_eGoVIS/test_map_layout.html")
+    return render(request, 'app_eGoVIS/test_map_layout.html')
 
 
 def basemap(request):

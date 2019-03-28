@@ -8,7 +8,8 @@ app_name = 'app_eGoVIS'
 
 urlpatterns = [
     # path('', views.index, name='basemap'),
-    path('', views.basemap, name='index'),
+    # path('', views.basemap, name='index'),
+    path('', views.basemap_template, name='index'),
 
     # 1 - Line
     path('Lines.data/', serial_views.LinesData.as_view(), name='Lines.data'),
