@@ -12,7 +12,8 @@ from django.contrib.gis.db import models as geomodels
 # Feel free to rename the models, but don't rename db_table values or field names.
 
 
-
+# All the following classes are models of a specific table
+# The models contain "Test" in name are most likely to be test data
 class EgoGridDing0VersioningTest(models.Model):
     run_id = models.BigIntegerField(primary_key=True)
     description = models.CharField(max_length=6000, blank=True, null=True)
