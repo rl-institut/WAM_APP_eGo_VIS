@@ -40,8 +40,7 @@ urlpatterns = [
     #14
     path('MvlvTransformer.data/', serial_views.MvlvTransformerData.as_view(), name='MvlvTransformer.data'),
     #15 - Non Geometry
-# path('LvGridData.data/', serial_views.LvGridData.as_view(), name='LvGridData.data'),
-#     #16
-# path('LvGridData.data/', serial_views.LvGridData.as_view(), name='LvGridData.data'),
+    # path('LvGridData.data/', serial_views.LvGridData.as_view(), name='LvGridData.data'),
+
 
 ]
