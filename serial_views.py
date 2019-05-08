@@ -136,6 +136,8 @@ from djgeojson.views import GeoJSONLayerView
 # class Ding0VersioningData(GeoJSONLayerView):
 #     model = EgoGridDing0VersioningTest
 
+
+#ToDo: filter all empty geometrys
 class LinesData(GeoJSONLayerView):
     model = EgoGridDing0Line
     #properties = ['run', 'type_name', 'length', 'u_n', 'c', 'l', 'r', 'i_max_th']
