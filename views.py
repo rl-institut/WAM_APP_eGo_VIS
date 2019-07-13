@@ -9,14 +9,14 @@ def basemap_template(request):
     # return render(request, 'app_eGoVIS/test_map_layout.html')
     return render(
         request,
-        'app_eGoVIS/test_map_layout.html',
+        'WAM_APP_eGo_VIS/test_map_layout.html',
         context={'leaflet_config': LEAFLET_CONFIG}
     )
 
 
-def basemap(request):
-    template = loader.get_template("app_eGoVIS/basemap.html")
-    return render(request, 'app_eGoVIS/basemap.html')
+# def basemap(request):
+#     template = loader.get_template("app_eGoVIS/basemap.html")
+#     return render(request, 'WAM_APP_eGo_VIS/basemap.html')
 
 
 # def get_data(request):
