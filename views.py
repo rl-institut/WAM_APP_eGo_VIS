@@ -1,15 +1,17 @@
 from django.http import HttpResponse
 from django.template import Context, loader
 from django.shortcuts import render
-from .models import EgoGridDing0LvStation
-from djgeojson.serializers import Serializer as GeoJSONSerializer
-from django.core.serializers import serialize
-import json
+from WAM_APP_eGo_VIS.config.leaflet import LEAFLET_CONFIG
 
 
 def basemap_template(request):
-    template = loader.get_template("app_eGoVIS/test_map_layout.html")
-    return render(request, 'app_eGoVIS/test_map_layout.html')
+    # template = loader.get_template("app_eGoVIS/test_map_layout.html")
+    # return render(request, 'app_eGoVIS/test_map_layout.html')
+    return render(
+        request,
+        'app_eGoVIS/test_map_layout.html',
+        context={'leaflet_config': LEAFLET_CONFIG}
+    )
 
 
 def basemap(request):
