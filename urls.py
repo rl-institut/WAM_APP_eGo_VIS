@@ -4,7 +4,7 @@ from . import views
 from . import serial_views
 from djgeojson.views import GeoJSONLayerView
 
-app_name = 'app_eGoVIS'
+app_name = 'WAM_APP_eGo_VIS'
 
 urlpatterns = [
     # path('', views.index, name='basemap'),
